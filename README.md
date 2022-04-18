@@ -1,5 +1,7 @@
 # GPU-Compute-Capability
 
+An application for querying the computing power of each gpu released by NVIDIA.
+
 ## Install
 
 ```bash
@@ -9,7 +11,7 @@ pip install -r requirements.txt
 ## Usage
 
 ```bash
-git clone
+git clone https://github.com/XavierJiezou/GPU-Compute-Capability.git
 ```
 
 ## References
