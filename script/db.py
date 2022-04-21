@@ -61,10 +61,10 @@ class DB:
         cursor.close()
         conn.close()
 
-    def select_gpus(self, table_name: str, columns: Dict, query: str) -> List:
+    def select_gpus(self, table_name: str, columns: Dict, word: str) -> List:
         conn = sqlite3.connect(self.db_name)
         cursor = conn.cursor()
-        sql = f'select * from {table_name} where {list(columns.keys())[0]} like "%{query}%"'
+        sql = f'select * from {table_name} where {list(columns.keys())[0]} like "%{word}%"'
         cursor.execute(sql)
         res = cursor.fetchall()
         conn.commit()
@@ -86,6 +86,6 @@ if __name__ == '__main__':
     columns = {'ID': 'TEXT', 'CC': 'REAL'}
     # json_file='data/cuda-gpus.json'
     # insert_rows(db_name, table_name, columns, json_file)
-    query = 'A10'
-    res = DB(db_name).select_gpus(table_name, columns, query)
+    word = 'A10'
+    res = DB(db_name).select_gpus(table_name, columns, word)
     print(res)
