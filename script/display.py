@@ -25,4 +25,4 @@ def display(fname: str):
 
 
 if __name__ == '__main__':
-    display('cuda-gpus.json')
+    display('data/cuda-gpus.json')

@@ -81,10 +81,10 @@ def insert_rows(db_name: str, table_name: str, columns: Dict, json_file: str) ->
 
 
 if __name__ == '__main__':
-    db_name = 'cuda-gpus.db'
+    db_name = 'data/cuda-gpus.db'
     table_name = 'GPUS'
     columns = {'ID': 'TEXT', 'CC': 'REAL'}
-    # json_file='cuda-gpus.json'
+    # json_file='data/cuda-gpus.json'
     # insert_rows(db_name, table_name, columns, json_file)
     query = 'A10'
     res = DB(db_name).select_gpus(table_name, columns, query)

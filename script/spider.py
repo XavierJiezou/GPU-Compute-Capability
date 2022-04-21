@@ -41,4 +41,4 @@ def spider(url: str, save_json: str):
 
 
 if __name__ == '__main__':
-    spider('https://developer.nvidia.com/cuda-gpus', 'cuda-gpus.json')
+    spider('https://developer.nvidia.com/cuda-gpus', 'data/cuda-gpus.json')
