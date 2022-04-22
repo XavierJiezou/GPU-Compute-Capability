@@ -63,6 +63,14 @@ def table():
                 st.table(data[i][j])
 
 
+def json_preview():
+    with st.expander('Json preivew'):
+        data = load_json()
+        with open('data/cuda-gpus.json', 'rb') as fp:
+            st.download_button('Download', fp, 'cuda-gpus.json')
+        st.write(data)
+
+
 def app():
     st.set_page_config(
         page_title='GPU-Compute-Capability',
@@ -85,6 +93,10 @@ def app():
     st.header('Table')
 
     table()
+
+    st.header('Json')
+
+    json_preview()
 
 
 if __name__ == '__main__':

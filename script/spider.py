@@ -4,12 +4,11 @@ import requests
 import json
 
 
-def spider(url: str, save_json: str):
+def spider(url: str):
     """A spider to crawl the computing capability information of GPUs from NVIDIA's official website.
 
     Args:
         url (str): Please set to https://developer.nvidia.com/cuda-gpus.
-        save_json (str): File name to save the json data.
     """
     console = Console(log_time=False, log_path=False)
     counter = 1
@@ -36,9 +35,9 @@ def spider(url: str, save_json: str):
             console.log(
                 f'task {counter} complete: {panel_heading} -> {sub_panel_heading}')
             counter += 1
-    with open(save_json, 'w') as fp:
-        json.dump(data, fp)
+    return data
 
 
 if __name__ == '__main__':
-    spider('https://developer.nvidia.com/cuda-gpus', 'data/cuda-gpus.json')
+    with open('data/cuda-gpus.json', 'w') as fp:
+        json.dump(spider('https://developer.nvidia.com/cuda-gpus'), fp)
