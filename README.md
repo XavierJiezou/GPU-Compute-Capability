@@ -12,11 +12,17 @@ pip install -r requirements.txt
 
 ```bash
 git clone https://github.com/XavierJiezou/GPU-Compute-Capability.git
+cd GPU-Compute-Capability
+pip install -r requirements.txt
+python script/spider.py
+python script/display.py
+python script/db.py
+streamlit run app.py
 ```
 
 ## Deploy
 
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/yourGitHubName/yourRepo/yourApp/)
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/xavierjiezou/gpu-compute-capability/main/app.py)
 
 ## References
 

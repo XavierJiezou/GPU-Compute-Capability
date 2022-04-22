@@ -30,7 +30,12 @@ class DB:
         arg = ','.join(
             [' '.join([k, str(v)]) for k, v in columns.items()]
         )
-        sql = f'create table if not exists {table_name} ({arg})'
+        try:
+            sql = f'drop table {table_name}'
+            cursor.execute(sql)
+        except:
+            pass
+        sql = f'create table {table_name} ({arg})'
         cursor.execute(sql)
         conn.commit()
         cursor.close()
@@ -81,11 +86,12 @@ def insert_rows(db_name: str, table_name: str, columns: Dict, json_file: str) ->
 
 
 if __name__ == '__main__':
-    db_name = 'data/cuda-gpus.db'
-    table_name = 'GPUS'
-    columns = {'ID': 'TEXT', 'CC': 'REAL'}
-    # json_file='data/cuda-gpus.json'
-    # insert_rows(db_name, table_name, columns, json_file)
-    word = 'A10'
-    res = DB(db_name).select_gpus(table_name, columns, word)
-    print(res)
+    insert_rows(
+        db_name='data/cuda-gpus.db',
+        table_name='GPUS',
+        columns={'ID': 'TEXT', 'CC': 'REAL'},
+        json_file='data/cuda-gpus.json'
+    )
+    # word = 'A10'
+    # res = DB(db_name).select_gpus(table_name, columns, word)
+    # print(res)
